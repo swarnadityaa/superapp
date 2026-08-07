@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniSuper - India's All-in-One Service Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#F3F4F6',
+                        dark: '#1F2937'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Top Navigation -->
+    <header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-xl">
+                    O
+                </div>
+                <span class="text-xl font-bold tracking-tight text-slate-900">OmniSuper</span>
+            </div>
+
+            <!-- Location Picker -->
+            <div class="hidden md:flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full text-sm">
+                <i class="fa-solid fa-location-dot text-indigo-600"></i>
+                <span class="font-medium text-slate-700">New Delhi, India</span>
+                <i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+            </div>
+
+            <!-- User Actions & Wallet -->
+            <div class="flex items-center space-x-4">
+                <div class="hidden sm:flex items-center space-x-2 bg-indigo-50 px-3 py-1.5 rounded-full text-indigo-700 font-semibold text-sm">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>₹1,250</span>
+                </div>
+                <button class="relative p-2 text-slate-600 hover:text-indigo-600">
+                    <i class="fa-solid fa-bell text-lg"></i>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                </button>
+                <div class="w-9 h-9 rounded-full bg-slate-300 overflow-hidden border border-slate-200 flex items-center justify-center font-bold text-slate-600">
+                    U
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+        <!-- Search Bar & Global Discovery -->
+        <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i class="fa-solid fa-search text-slate-400 text-lg"></i>
+            </div>
+            <input type="text" placeholder="Search for rides, food, plumbers, architects, goldsmiths..." class="w-full pl-12 pr-28 py-4 bg-white border border-slate-200 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent text-slate-800 placeholder-slate-400 font-medium">
+            <div class="absolute inset-y-0 right-2 flex items-center">
+                <button class="bg-indigo-600 text-white px-4 py-2 rounded-xl font-medium text-sm hover:bg-indigo-700 transition">
+                    Explore
+                </button>
+            </div>
+        </div>
+
+        <!-- Native Ad Carousel Space -->
+        <div class="relative bg-gradient-to-r from-indigo-600 to-violet-700 rounded-3xl p-6 text-white shadow-md overflow-hidden">
+            <div class="absolute top-2 right-4 bg-white/20 text-xs px-2 py-0.5 rounded uppercase tracking-wider font-semibold">Sponsored Ad</div>
+            <div class="max-w-lg space-y-2">
+                <span class="bg-amber-400 text-slate-900 text-xs font-bold px-2.5 py-1 rounded-md">Festive Offer</span>
+                <h2 class="text-2xl font-bold tracking-tight">Design Your Dream Home with Elite Architects</h2>
+                <p class="text-indigo-100 text-sm">Get verified architects & interior designers with 0% platform commission on initial consultations.</p>
+                <button class="mt-2 bg-white text-indigo-700 font-semibold px-4 py-2 rounded-xl text-sm shadow hover:bg-slate-100 transition">
+                    Book Consultation
+                </button>
+            </div>
+        </div>
+
+        <!-- High-Frequency Services (Big 4 Grid) -->
+        <section>
+            <h2 class="text-lg font-bold text-slate-900 mb-4">Daily Essentials</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <!-- Service Card 1 -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 text-2xl mb-3 group-hover:scale-105 transition">
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+                    <span class="font-semibold text-slate-800 text-sm">Car Booking</span>
+                    <span class="text-xs text-slate-400 mt-0.5">Rides & Rentals</span>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 text-2xl mb-3 group-hover:scale-105 transition">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <span class="font-semibold text-slate-800 text-sm">Food Delivery</span>
+                    <span class="text-xs text-slate-400 mt-0.5">Top Restaurants</span>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 text-2xl mb-3 group-hover:scale-105 transition">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <span class="font-semibold text-slate-800 text-sm">Quick Commerce</span>
+                    <span class="text-xs text-slate-400 mt-0.5">Grocery in 10m</span>
+                </div>
+                <!-- Service Card 4 -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 text-2xl mb-3 group-hover:scale-105 transition">
+                        <i class="fa-solid fa-box-archive"></i>
+                    </div>
+                    <span class="font-semibold text-slate-800 text-sm">Speedpost & Couriers</span>
+                    <span class="text-xs text-slate-400 mt-0.5">Instant pickup</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Household & Professional Services -->
+        <section>
+            <h2 class="text-lg font-bold text-slate-900 mb-4">Household & Maintenance</h2>
+            <div class="grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-4">
+                <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm hover:border-indigo-600 transition cursor-pointer flex flex-col items-center text-center">
+                    <i class="fa-solid fa-fire-burner text-indigo-600 text-xl mb-2"></i>
+                    <span class="text-xs font-semibold text-slate-700">Cooking</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm hover:border-indigo-600 transition cursor-pointer flex flex-col items-center text-center">
+                    <i class="fa-solid fa-broom text-indigo-600 text-xl mb-2"></i>
+                    <span class="text-xs font-semibold text-slate-700">Cleaning</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm hover:border-indigo-600 transition cursor-pointer flex flex-col items-center text-center">
+                    <i class="fa-solid fa-screwdriver-wrench text-indigo-600 text-xl mb-2"></i>
+                    <span class="text-xs font-semibold text-slate-700">Plumber</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm hover:border-indigo-600 transition cursor-pointer flex flex-col items-center text-center">
+                    <i class="fa-solid fa-plug text-indigo-600 text-xl mb-2"></i>
+                    <span class="text-xs font-semibold text-slate-700">Electrician</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm hover:border-indigo-600 transition cursor-pointer flex flex-col items-center text-center">
+                    <i class="fa-solid fa-scissors text-indigo-600 text-xl mb-2"></i>
+                    <span class="text-xs font-semibold text-slate-700">Barber</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm hover:border-indigo-600 transition cursor-pointer flex flex-col items-center text-center">
+                    <i class="fa-solid fa-soap text-indigo-600 text-xl mb-2"></i>
+                    <span class="text-xs font-semibold text-slate-700">Car Washer</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialized & Niche Services (Architects, Goldsmiths, Rentals) -->
+        <section>
+            <h2 class="text-lg font-bold text-slate-900 mb-4">Specialized Services & Rentals</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-slate-800 text-sm">Architects</h4>
+                        <p class="text-xs text-slate-400">Interior & Exterior</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-slate-800 text-sm">Car Painter</h4>
+                        <p class="text-xs text-slate-400">Custom & Touchup</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-slate-800 text-sm">Goldsmith</h4>
+                        <p class="text-xs text-slate-400">Custom Jewelry</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-house-laptop"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-slate-800 text-sm">Space Rental</h4>
+                        <p class="text-xs text-slate-400">Office & Events</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Active Order Tracker Preview (Bottom Floating Status Bar) -->
+        <div class="bg-slate-900 text-white p-4 rounded-2xl shadow-lg flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-400">Active Service in Progress</p>
+                    <p class="text-sm font-semibold">Cab arriving in 3 mins • Honda City (DL 4C 9821)</p>
+                </div>
+            </div>
+            <button class="bg-white/10 hover:bg-white/20 text-xs px-3 py-1.5 rounded-lg transition font-medium">
+                View Status
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Bottom Mobile Navigation Bar -->
+    <nav class="sticky bottom-0 bg-white border-t border-slate-200 mt-8 py-2 px-6 flex justify-between items-center sm:hidden z-50">
+        <div class="flex flex-col items-center text-indigo-600">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span class="text-[10px] mt-1 font-medium">Home</span>
+        </div>
+        <div class="flex flex-col items-center text-slate-400 hover:text-indigo-600">
+            <i class="fa-solid fa-compass text-lg"></i>
+            <span class="text-[10px] mt-1">Discover</span>
+        </div>
+        <div class="flex flex-col items-center text-slate-400 hover:text-indigo-600">
+            <i class="fa-solid fa-receipt text-lg"></i>
+            <span class="text-[10px] mt-1">Orders</span>
+        </div>
+        <div class="flex flex-col items-center text-slate-400 hover:text-indigo-600">
+            <i class="fa-solid fa-user text-lg"></i>
+            <span class="text-[10px] mt-1">Profile</span>
+        </div>
+    </nav>
+
+</body>
+</html>
