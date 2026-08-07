@@ -1,33 +1,27 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (gh-pages)
 on:
   push:
     branches:
       - main
 
 permissions:
-  contents: read
   pages: write
   id-token: write
+  contents: read
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: .
-
-      - name: Deploy to GitHub Pages
-        id: deploy
-        uses: actions/deploy-pages@v1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          user_name: github-actions
+          user_email: github-actions@github.com
