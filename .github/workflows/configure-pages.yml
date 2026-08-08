@@ -1,0 +1,25 @@
+name: Configure GitHub Pages to main root
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+
+jobs:
+  set-pages-source:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure Pages to use main root
+        env:
+          REPO: ${{ github.repository }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Setting Pages source to main:/"
+          curl -s -X PUT \
+            -H "Authorization: token ${TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/${REPO}/pages \
+            -d '{"source":{"branch":"main","path":"/"}}'
