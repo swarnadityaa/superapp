@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servify - Spatial UI Concept</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    /* 
+     * APPLE SPATIAL UI DESIGN SYSTEM 
+     * Palette: True White, Absolute Black, Signature Red
+     */
+    :root {
+      --bg-base: #f4f5f7;
+      --bg-surface: rgba(255, 255, 255, 0.75);
+      --text-black: #000000;
+      --text-gray: #6e6e73;
+      --accent-red: #ff2d55;
+      --accent-red-glow: rgba(255, 45, 85, 0.3);
+      --glass-border: 1px solid rgba(255, 255, 255, 0.8);
+      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.06);
+      --shadow-float: 0 30px 60px rgba(0, 0, 0, 0.12);
+      --ease-apple: cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg-base) 100%);
+      min-height: 100vh;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-black);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* Mobile Prototype Container */
+    .app-container {
+      width: 100%;
+      max-width: 430px; /* iPhone Pro Max width */
+      background: radial-gradient(150% 150% at 50% 0%, #ffffff 0%, #f0f2f5 100%);
+      border-radius: 40px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.1), inset 0 0 0 8px #fff;
+      overflow: hidden;
+      position: relative;
+      padding-bottom: 40px;
+    }
+
+    /* Header */
+    header {
+      padding: 24px 30px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Segmented Control */
+    .segmented-control {
+      background: rgba(0, 0, 0, 0.04);
+      border-radius: 99px;
+      display: flex;
+      padding: 4px;
+      margin: 10px auto 30px;
+      width: max-content;
+      position: relative;
+    }
+
+    .seg-btn {
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-gray);
+      background: transparent;
+      border: none;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      z-index: 2;
+    }
+
+    .seg-btn.active {
+      color: var(--text-black);
+      font-weight: 600;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    /* Hero Typography */
+    .hero {
+      padding: 0 30px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      line-height: 1.1;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-gray);
+      margin-bottom: 28px;
+    }
+
+    /* Search Bar */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: var(--bg-surface);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: var(--glass-border);
+      border-radius: 99px;
+      padding: 8px 8px 8px 20px;
+      box-shadow: var(--shadow-soft);
+      margin: 0 30px 40px;
+      transition: transform 0.3s var(--ease-apple);
+    }
+
+    .search-bar:focus-within {
+      transform: scale(1.02);
+    }
+
+    .search-bar input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 15px;
+      outline: none;
+      color: var(--text-black);
+    }
+
+    .search-bar input::placeholder {
+      color: var(--text-gray);
+    }
+
+    .btn-red {
+      background: linear-gradient(135deg, #ff4565, var(--accent-red));
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 99px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px var(--accent-red-glow);
+      transition: all 0.2s var(--ease-apple);
+    }
+
+    .btn-red:active {
+      transform: scale(0.95);
+    }
+
+    /* Spatial Categories Layout */
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin: 0 30px 20px;
+    }
+
+    .categories-spatial {
+      display: flex;
+      padding: 0 30px 40px;
+      gap: 20px;
+      align-items: center;
+    }
+
+    /* 3D Icon Cluster Illusion */
+    .icon-cluster {
+      flex: 1;
+      position: relative;
+      height: 200px;
+    }
+
+    .floating-icon {
+      position: absolute;
+      font-size: 40px;
+      filter: drop-shadow(0 15px 15px rgba(0,0,0,0.15));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .icon-chef { top: 10px; left: 10px; font-size: 50px; animation-delay: 0s; }
+    .icon-stamp { top: 0; right: 20px; font-size: 35px; filter: grayscale(1) drop-shadow(0 15px 15px rgba(0,0,0,0.2)); animation-delay: -2s; }
+    .icon-paint { top: 70px; right: 0px; font-size: 45px; animation-delay: -4s; }
+    .icon-barber { bottom: 0; left: 30px; font-size: 40px; animation-delay: -1s; }
+    .icon-zap { bottom: 20px; right: 10px; font-size: 35px; filter: grayscale(1); animation-delay: -3s; }
+
+    /* Category List Glass Panel */
+    .category-list {
+      background: var(--bg-surface);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: var(--glass-border);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: var(--shadow-soft);
+      flex: 1.2;
+    }
+
+    .category-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 0;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .category-item:hover {
+      color: var(--accent-red);
+    }
+
+    .category-item.active {
+      color: var(--text-black);
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent-red);
+      border-radius: 50%;
+      margin-right: 10px;
+      box-shadow: 0 0 8px var(--accent-red-glow);
+    }
+
+    /* Stacked Floating Cards */
+    .providers-stack {
+      padding: 0 30px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .provider-card {
+      width: 100%;
+      background: var(--bg-surface);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: var(--glass-border);
+      border-radius: 20px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-float);
+      position: relative;
+      transition: transform 0.4s var(--ease-apple), box-shadow 0.4s var(--ease-apple);
+      cursor: pointer;
+    }
+
+    /* Layering the cards to look like physical stacked glass */
+    .provider-card:nth-child(1) { z-index: 3; transform: scale(1) translateY(0); }
+    .provider-card:nth-child(2) { z-index: 2; transform: scale(0.92) translateY(-25px); opacity: 0.8; }
+    
+    .provider-card:hover {
+      transform: scale(1.02) translateY(-5px) !important;
+      opacity: 1 !important;
+      z-index: 10;
+    }
+
+    .pro-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      background: #000;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .pro-name {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .verified {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-black);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 2px;
+    }
+
+    .verified span {
+      color: var(--accent-red);
+    }
+
+    .btn-red-outline {
+      background: linear-gradient(135deg, #ff4565, var(--accent-red));
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 600;
+      box-shadow: 0 4px 10px var(--accent-red-glow);
+    }
+
+    /* Bottom Live Feed Card */
+    .live-feed-card {
+      margin: 0 30px;
+      background: var(--bg-surface);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: var(--glass-border);
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: var(--shadow-float);
+    }
+
+    .live-feed-card h3 {
+      color: var(--accent-red);
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .balance-label {
+      font-size: 12px;
+      color: var(--text-gray);
+      margin-bottom: 2px;
+    }
+
+    .balance-amount {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent-red);
+      letter-spacing: -0.5px;
+    }
+
+    /* Smooth Floating Animation */
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <header>
+      <div class="logo">Servify</div>
+    </header>
+
+    <div class="segmented-control">
+      <button class="seg-btn active">Client View</button>
+      <button class="seg-btn">Provider View</button>
+    </div>
+
+    <section class="hero">
+      <h1>Book Verified Pros or Set Your Own Price</h1>
+      <p>Connect with background-checked local experts. Compare offers, bargain directly, and pay securely via Escrow.</p>
+    </section>
+
+    <div class="search-bar">
+      <span style="font-size: 18px; margin-right: 8px; color: var(--text-gray);">🔍</span>
+      <input type="text" placeholder="Try 'Carpenter'...">
+      <button class="btn-red">Search</button>
+    </div>
+
+    <h2 class="section-title">Browse Popular Categories</h2>
+    
+    <div class="categories-spatial">
+      <!-- 3D Illusion Icons -->
+      <div class="icon-cluster">
+        <div class="floating-icon icon-chef">👨‍🍳</div>
+        <div class="floating-icon icon-stamp">🏛️</div>
+        <div class="floating-icon icon-paint">🖌️</div>
+        <div class="floating-icon icon-barber">💈</div>
+        <div class="floating-icon icon-zap">⚡</div>
+        <!-- Center Focus Text simulating the image layout -->
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; font-weight: 800; font-size: 16px; line-height: 1.1; z-index: 10;">
+          PRIVATE<br>CHEF<span style="color: var(--accent-red);">•</span>
+        </div>
+      </div>
+
+      <!-- Glass Menu -->
+      <div class="category-list">
+        <div class="category-item active">
+          <div class="dot"></div> PRIVATE CHEF
+        </div>
+        <div class="category-item">CARPENTER</div>
+        <div class="category-item">PAINTER</div>
+        <div class="category-item">HOME CLEANER</div>
+        <div class="category-item" style="font-size: 12px;">BARBER / GROOMER</div>
+        <div class="category-item">ELECTRICIAN</div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Top Background-Verified Service Providers</h2>
+
+    <div class="providers-stack">
+      <!-- Top Card -->
+      <div class="provider-card">
+        <div class="pro-info">
+          <div class="avatar">👩🏻</div>
+          <div>
+            <div class="pro-name">Elena Rostova</div>
+            <div class="verified"><span>✓</span> Verified</div>
+          </div>
+        </div>
+        <button class="btn-red-outline">Book Now & Bargain</button>
+      </div>
+
+      <!-- Stacked Card Underneath -->
+      <div class="provider-card">
+        <div class="pro-info">
+          <div class="avatar">👩🏻</div>
+          <div>
+            <div class="pro-name">Elena Rostova</div>
+            <div class="verified"><span>✓</span> Verified</div>
+          </div>
+        </div>
+        <button class="btn-red-outline">Book Now & Bargain</button>
+      </div>
+    </div>
+
+    <!-- Live Job Feed Floating Card -->
+    <div class="live-feed-card">
+      <h3>Live Job Feed</h3>
+      <div class="balance-label">Wallet Balance</div>
+      <div class="balance-amount">$840.00</div>
+    </div>
+
+  </div>
+
+  <script>
+    // Simple script to toggle segmented control for the prototype
+    const buttons = document.querySelectorAll('.seg-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

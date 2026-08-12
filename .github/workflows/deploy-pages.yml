@@ -1,0 +1,37 @@
+name: Deploy to gh-pages (manual git push)
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Prepare publish directory
+        env:
+          PUBLISH_DIR: ./
+        run: |
+          mkdir out
+          rsync -av --delete --exclude='.git' "$PUBLISH_DIR"/ out/
+
+      - name: Commit & push to gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd out
+          git init
+          git checkout -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy to gh-pages: $GITHUB_SHA" || true
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
